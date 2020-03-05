@@ -1,10 +1,8 @@
 
-let bertha;
-let ponyPic;
-let rainbowPic;
-let ponies = [];
-let howManyPonies = 200;
-let whichPony = 0;
+let dancingvidPic;
+let dancingvids = [];
+let howManydancingvids = 200;
+let whichdancingvid = 0;
 let vid;
 let playing = false;
 let angle = 0.0;
@@ -15,12 +13,10 @@ let bg;
 
 function setup(){
   createCanvas(1810, 900);
-  ponyPic = loadImage('assets/pony.png');
-  rainbowPic = loadImage('assets/rainbow.png');
   vid = createVideo(['assets/AIDANCING.mp4']);
  // bg = createVideo(['assets/AIDANCING.mp4']);
-  for (let i = 0; i < howManyPonies; i++){
-  ponies[i] = new Pony();
+  for (let i = 0; i < howManydancingvids; i++){
+  dancingvids[i] = new dancingvid();
   vid.play
   vid.loop();
   vid.hide();
@@ -63,9 +59,9 @@ function draw(){
   image(vid, 1810, 900);
   image(vid, 100, 900, 50, 80);
   noCursor();
-  for (let i = 0; i < howManyPonies; i++){
-    ponies[i].move();
-    ponies[i].display();
+  for (let i = 0; i < howManydancingvids; i++){
+    dancingvids[i].move();
+    dancingvids[i].display();
   }
   image(vid, mouseBoxx, mouseBoxy, 50, 80);
 }
@@ -73,13 +69,13 @@ function draw(){
 function mousePressed(){
   mouseBoxx = mouseX;
   mouseBoxy = mouseY;
-  ponies[whichPony].teleportPony(mouseX, mouseY);
-  ponies[whichPony].makePonyVisible();
-  whichPony++;
-  whichPony = whichPony % howManyPonies;
+  dancingvids[whichdancingvid].teleportdancingvid(mouseX, mouseY);
+  dancingvids[whichdancingvid].makedancingvidVisible();
+  whichdancingvid++;
+  whichdancingvid = whichdancingvid % howManydancingvids;
 
 }
-class Pony {
+class dancingvid {
   constructor(){
     this.x = random(width);
     this.y = random(height);
@@ -112,11 +108,11 @@ class Pony {
     // }
 
   }
-  teleportPony(xLoc, yLoc){
+  teleportdancingvid(xLoc, yLoc){
     this.x = xLoc;
     this.y = yLoc;
   }
-  makePonyVisible(){
+  makedancingvidVisible(){
     this.visible = true;
   }
 
